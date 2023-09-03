@@ -1,28 +1,44 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
+  <img alt="Vue logo" src="./assets/logo.png" />
   <h1>Vue Component</h1>
-<Modal :header="header" :title="title" :text="text" />
+  <div v-if="show">
+    <Modal theme="sale" @close="toggleModal">
+      <h1>Ausaf Vue Project</h1>
+      <p>Grab your Chance</p>
+      <template v-slot:links>
+        <a href="#">Sign In </a>
+        <a href="#">Sign Up </a>
+      </template>
+    </Modal>
+  </div>
+  <button @click="toggleModal">Show Modal</button>
 </template>
 
 <script>
-import Modal from './components/Modal.vue'
+import Modal from "./components/Modal.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   data() {
     return {
-      title:'My First Component',
-      header:"First Component",
-      text:"Grab Your Chance"
-    }
+      title: "My First Component",
+      header: "First Component",
+      text: "Grab Your Chance",
+      show: false,
+    };
   },
   components: {
-    Modal
-  }
-}
+    Modal,
+  },
+  methods: {
+    toggleModal() {
+      this.show = !this.show;
+    },
+  },
+};
 </script>
 
-<style >
+<style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -30,5 +46,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+button {
+  padding: 10px;
+  border: 0px;
+  border-radius: 6px;
 }
 </style>
