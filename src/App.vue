@@ -1,5 +1,6 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
+  <h1>Vue Component</h1>
 <Modal :header="header" :title="title" :text="text" />
 </template>
 
@@ -21,7 +22,7 @@ export default {
 }
 </script>
 
-<style>
+<style >
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
