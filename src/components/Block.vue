@@ -26,8 +26,10 @@ export default {
         }, 10);
     },
     stopTimer(){
-        
+       
         clearInterval(this.timer)
+        this.$emit('end',this.reactionTimer)
+        this.showBlock = false;
         console.log(this.reactionTimer);
     }
   },
