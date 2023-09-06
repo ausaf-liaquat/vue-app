@@ -23,11 +23,20 @@
   </div>
   <button @click="toggleModal">Show Modal</button>
 
-  <button  @click="toggleModalTwo">Show Modal 2</button>
+  <button @click="toggleModalTwo">Show Modal 2</button>
+
+  <h1>Ninja Reaction Timer</h1>
+
+  <button @click="startGame" :disabled="isPlaying">Play</button>
+
+  <Block v-if="isPlaying" :delay="delay"> </Block>
+
 </template>
 
 <script>
 import Modal from "./components/Modal.vue";
+
+import Block from "./components/Block.vue";
 
 export default {
   name: "App",
@@ -35,10 +44,13 @@ export default {
     return {
       show: false,
       showTwo: false,
+      isPlaying: false,
+      delay: null,
     };
   },
   components: {
     Modal,
+    Block,
   },
   methods: {
     toggleModal() {
@@ -46,6 +58,12 @@ export default {
     },
     toggleModalTwo() {
       this.showTwo = !this.showTwo;
+    },
+    // Game
+    startGame() {
+      this.delay = 2000 + Math.random() * 5000;
+      this.isPlaying = true;
+
     },
   },
 };
