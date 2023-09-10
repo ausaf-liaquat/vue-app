@@ -32,12 +32,18 @@
   <button @click="startGame" :disabled="isPlaying">Play</button>
 
   <Block v-if="isPlaying" :delay="delay" @end="endGame"> </Block>
+  <SignupForm>
+
+  </SignupForm>
 </template>
 
 <script>
 import Modal from "./components/Modal.vue";
 
 import Block from "./components/Block.vue";
+
+import SignupForm from "./components/SignupForm.vue";
+
 
 export default {
   name: "App",
@@ -54,6 +60,7 @@ export default {
   components: {
     Modal,
     Block,
+    SignupForm
   },
   methods: {
     toggleModal() {
